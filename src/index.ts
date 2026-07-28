@@ -15,7 +15,24 @@ export const salesPlaybookArtifactManifest: SemanticArtifactManifest = {
     },
   },
   skills: {
-    matchers: ["@cinatra-ai/sales-playbook-artifact:sales-playbook-matcher"],
+    matchers: [
+      "@cinatra-ai/sales-playbook-matcher-skill:sales-playbook-matcher",
+    ],
   },
   matcherConfidenceThreshold: 0.7,
+  objectTypes: [
+    {
+      type: "@cinatra-ai/sales-playbook-artifact:sales-playbook",
+      claim: "dedicated",
+      dispositions: {
+        projection: "artifact-safe",
+        pinnable: true,
+        snapshotPolicy: "content",
+        sensitivity: "normal",
+      },
+      schema: {
+        type: "object",
+      },
+    },
+  ],
 };
